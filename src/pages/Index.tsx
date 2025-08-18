@@ -107,11 +107,13 @@ const Index = () => {
       {/* Header */}
       <header className="border-b border-[#3dffff]/20 bg-[#141414]/90 backdrop-blur-xl sticky top-0 z-50">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="flex items-center">
-            <img src={LogoIconsvg} alt="" className="h-10  mr-3" />
-            <span className="text-xl font-bold bg-gradient-to-r from-[#FFFFFF] to-[#FFFFFF]/70 bg-clip-text text-transparent">PRIME</span>
-            <span className="text-xl font-normal bg-gradient-to-r from-[#FFFFFF] to-[#FFFFFF]/70 bg-clip-text text-transparent">CODE</span>
-          </div>
+          <a href="#hero">
+            <div className="flex items-center">
+              <img src={LogoIconsvg} alt="" className="h-10  mr-3" />
+              <span className="text-xl font-bold bg-gradient-to-r from-[#FFFFFF] to-[#FFFFFF]/70 bg-clip-text text-transparent">PRIME</span>
+              <span className="text-xl font-normal bg-gradient-to-r from-[#FFFFFF] to-[#FFFFFF]/70 bg-clip-text text-transparent">CODE</span>
+            </div>
+          </a>
           <nav className="hidden md:flex space-x-8">
             <a href="#services" className="relative group text-white/80 hover:text-white transition-colors">
               Serviços
@@ -130,15 +132,17 @@ const Index = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#3dffff] transition-all duration-300 group-hover:w-full"></span>
             </a>
           </nav>
-          <Button className="relative overflow-hidden group bg-gradient-to-r from-[#3dffff] to-[#3dffff]/70 text-[#141414] shadow-lg shadow-[#3dffff]/30 hover:shadow-[#3dffff]/40">
-            <span className="relative z-10">Fale Conosco</span>
-            <span className="absolute inset-0 bg-gradient-to-r from-[#3dffff]/70 to-[#3dffff] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-          </Button>
+          <a href="#contact">
+            <Button className="relative overflow-hidden group bg-gradient-to-r from-[#3dffff] to-[#3dffff]/70 text-[#141414] shadow-lg shadow-[#3dffff]/30 hover:shadow-[#3dffff]/40">
+              <span className="relative z-10">Fale Conosco</span>
+              <span className="absolute inset-0 bg-gradient-to-r from-[#3dffff]/70 to-[#3dffff] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+            </Button>
+          </a>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-32 overflow-hidden">
+      <section id="hero" className="relative py-32 overflow-hidden">
         {/* Efeito Matrix Digital Rain como background */}
         <div className="absolute inset-0 z-0 opacity-20 ">
           <MatrixRainingLetters
@@ -188,9 +192,11 @@ const Index = () => {
               <span className="absolute inset-0 bg-gradient-to-r from-[#3dffff]/70 to-[#3dffff] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-md"></span>
             </Button>
 
-            <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-[#3dffff] border-[0.5px] text-white hover:bg-[#3dffff]/10 transition-all duration-300">
-              Agendar Diagnóstico
-            </Button>
+            <a href="#contact">
+              <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-[#3dffff] border-[0.5px] text-white hover:bg-[#3dffff]/10 transition-all duration-300">
+                Agendar Diagnóstico
+              </Button>
+            </a>
           </div>
         </div>
         <div className="container mx-auto px-6 mt-[120px]">
@@ -487,7 +493,7 @@ const Index = () => {
                     </div>
                     <div>
                       <p className="font-medium text-white">Email</p>
-                      <p className="text-white/80">contato@primecodeconculting.com.br</p>
+                      <p className="text-white/80">contato@primecodeconsulting.com.br</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4 p-4 rounded-lg border border-[#3dffff]/20 hover:bg-[#3dffff]/10 transition-colors">
@@ -550,8 +556,8 @@ const Index = () => {
               <ul className="space-y-3">
                 <li><a href="#" className="text-white/80 hover:text-[#3dffff] transition-colors">Sobre Nós</a></li>
                 <li><a href="#" className="text-white/80 hover:text-[#3dffff] transition-colors">Equipe</a></li>
-                <li><a href="#" className="text-white/80 hover:text-[#3dffff] transition-colors">Carreiras</a></li>
-                <li><a href="#" className="text-white/80 hover:text-[#3dffff] transition-colors">Blog</a></li>
+                {/* <li><a href="#" className="text-white/80 hover:text-[#3dffff] transition-colors">Carreiras</a></li> */}
+                {/* <li><a href="#" className="text-white/80 hover:text-[#3dffff] transition-colors">Blog</a></li> */}
               </ul>
             </div>
 
@@ -560,7 +566,7 @@ const Index = () => {
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Mail className="w-5 h-5 text-[#3dffff] mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="text-white/80">contato@primecodeconculting.com.br</span>
+                  <span className="text-white/80">contato@primecodeconsulting.com.br</span>
                 </li>
                 <li className="flex items-start">
                   <Phone className="w-5 h-5 text-[#3dffff] mr-3 mt-0.5 flex-shrink-0" />
