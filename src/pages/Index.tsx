@@ -487,7 +487,7 @@ const Index = () => {
                     </div>
                     <div>
                       <p className="font-medium text-white">Email</p>
-                      <p className="text-white/80">contato@primecode.com.br</p>
+                      <p className="text-white/80">contato@primecodeconculting.com.br</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4 p-4 rounded-lg border border-[#3dffff]/20 hover:bg-[#3dffff]/10 transition-colors">
@@ -496,7 +496,7 @@ const Index = () => {
                     </div>
                     <div>
                       <p className="font-medium text-white">Localização</p>
-                      <p className="text-white/80">São Paulo, Brasil</p>
+                      <p className="text-white/80">Passo Fundo-RS, Brasil</p>
                     </div>
                   </div>
                 </div>
@@ -560,7 +560,7 @@ const Index = () => {
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Mail className="w-5 h-5 text-[#3dffff] mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="text-white/80">contato@primecode.com.br</span>
+                  <span className="text-white/80">contato@primecodeconculting.com.br</span>
                 </li>
                 <li className="flex items-start">
                   <Phone className="w-5 h-5 text-[#3dffff] mr-3 mt-0.5 flex-shrink-0" />
@@ -568,7 +568,7 @@ const Index = () => {
                 </li>
                 <li className="flex items-start">
                   <MapPin className="w-5 h-5 text-[#3dffff] mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="text-white/80">São Paulo, Brasil</span>
+                  <span className="text-white/80">Passo Fundo-RS, Brasil</span>
                 </li>
               </ul>
             </div>
