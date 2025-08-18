@@ -140,7 +140,7 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
         {/* Efeito Matrix Digital Rain como background */}
-        <div className="absolute inset-0 z-0 opacity-5 ">
+        <div className="absolute inset-0 z-0 opacity-20 ">
           <MatrixRainingLetters
             key="matrix-rain"
             custom_class="w-full h-full"
