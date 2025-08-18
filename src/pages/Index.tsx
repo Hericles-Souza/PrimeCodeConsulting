@@ -148,7 +148,7 @@ const Index = () => {
             timeout={50} // Velocidade da animação
             font_size={14}
           />
-          
+
         </div>
 
         <div className="absolute inset-0 bg-gradient-to-br from-[#3dffff]/10 to-[#191919] z-0"></div>
@@ -193,7 +193,7 @@ const Index = () => {
             </Button>
           </div>
         </div>
-         <div className="container mx-auto px-6 mt-[120px]">
+        <div className="container mx-auto px-6 mt-[120px]">
           <div className="grid md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
               <div key={index} className="relative group">
@@ -211,10 +211,6 @@ const Index = () => {
         </div>
       </section>
       {/* <section className="py-20 bg-[#191919]">
-       
-      </section> */}
-
-      {/* Stats Section */}
 
       {/* Services Section */}
       <section id="services" className="py-20 bg-[#141414]">
@@ -250,7 +246,8 @@ const Index = () => {
       </section>
 
       {/* Methodology Section */}
-      <section id="methodology" className="relative py-28 bg-gradient-to-br from-[#3dffff]/5 via-[#141414] to-[#3dffff]/5">
+      {/* Methodology Section */}
+      <section id="methodology" className="py-20 bg-[#141414]">
         <div className="container mx-auto px-6">
           <div className="text-center mb-20 max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -262,28 +259,128 @@ const Index = () => {
           </div>
 
           <div className="relative">
-            <div className="absolute left-1/2 top-0 h-full w-0.5 bg-gradient-to-b from-[#3dffff] to-[#191919] -translate-x-1/2 hidden md:block"></div>
+            <div className="absolute left-1/2 top-0 h-full w-0.5 bg-gradient-to-b from-[#3dffff] to-[#141414] -translate-x-1/2 hidden md:block"></div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              {methodologySteps.map((step, index) => (
-                <div key={index} className={`md:mt-${index % 2 === 0 ? '0' : '32'}`}>
+              {/* Item 1 */}
+              <div className="md:mt-0">
+                <div className="relative group">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#3dffff] to-[#191919] rounded-xl blur-md opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
                   <div className="relative bg-[#141414] backdrop-blur-md rounded-xl p-8 border border-[#3dffff]/20 hover:border-[#3dffff]/40 transition-all duration-300">
                     <div className="absolute -left-4 top-8 w-8 h-8 rounded-full bg-[#3dffff] flex items-center justify-center md:-left-4">
-                      <step.icon className="w-4 h-4 text-[#141414]" />
+                      <Brain className="w-4 h-4 text-[#141414]" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4 text-white">{step.title}</h3>
-                    <p className="text-white/80 mb-4">{step.description}</p>
+                    <h3 className="text-2xl font-bold mb-4 text-white">Descoberta e Análise</h3>
+                    <p className="text-white/80 mb-4">
+                      Compreensão profunda dos desafios e objetivos do negócio para definir a estratégia técnica ideal.
+                    </p>
                     <ul className="space-y-2">
-                      {step.items.map((item, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-[#3dffff] mr-2 mt-0.5 flex-shrink-0" />
-                          <span className="text-white/80">{item}</span>
-                        </li>
-                      ))}
+                      <li className="flex items-start">
+                        <CheckCircle className="w-5 h-5 text-[#3dffff] mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-white/80">Workshops com stakeholders</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-5 h-5 text-[#3dffff] mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-white/80">Análise de sistemas existentes</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-5 h-5 text-[#3dffff] mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-white/80">Definição de requisitos técnicos</span>
+                      </li>
                     </ul>
                   </div>
                 </div>
-              ))}
+              </div>
+
+              {/* Item 2 */}
+              <div className="md:mt-32">
+                <div className="relative group">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#3dffff] to-[#191919] rounded-xl blur-md opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+                  <div className="relative bg-[#141414] backdrop-blur-md rounded-xl p-8 border border-[#3dffff]/20 hover:border-[#3dffff]/40 transition-all duration-300">
+                    <div className="absolute -left-4 top-8 w-8 h-8 rounded-full bg-[#3dffff] flex items-center justify-center md:-left-4">
+                      <Layers className="w-4 h-4 text-[#141414]" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4 text-white">Design de Arquitetura</h3>
+                    <p className="text-white/80 mb-4">
+                      Criação de arquiteturas robustas e escaláveis utilizando as melhores práticas do mercado.
+                    </p>
+                    <ul className="space-y-2">
+                      <li className="flex items-start">
+                        <CheckCircle className="w-5 h-5 text-[#3dffff] mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-white/80">Definição de stack tecnológico</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-5 h-5 text-[#3dffff] mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-white/80">Diagramas de arquitetura</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-5 h-5 text-[#3dffff] mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-white/80">Plano de escalabilidade</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Item 3 */}
+              <div className="md:mt-0">
+                <div className="relative group">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#3dffff] to-[#191919] rounded-xl blur-md opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+                  <div className="relative bg-[#141414] backdrop-blur-md rounded-xl p-8 border border-[#3dffff]/20 hover:border-[#3dffff]/40 transition-all duration-300">
+                    <div className="absolute -left-4 top-8 w-8 h-8 rounded-full bg-[#3dffff] flex items-center justify-center md:-left-4">
+                      <Code className="w-4 h-4 text-[#141414]" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4 text-white">Desenvolvimento Ágil</h3>
+                    <p className="text-white/80 mb-4">
+                      Implementação iterativa com entregas frequentes e feedback contínuo.
+                    </p>
+                    <ul className="space-y-2">
+                      <li className="flex items-start">
+                        <CheckCircle className="w-5 h-5 text-[#3dffff] mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-white/80">Sprints de 2 semanas</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-5 h-5 text-[#3dffff] mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-white/80">Revisões de código</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-5 h-5 text-[#3dffff] mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-white/80">Integração contínua</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Item 4 */}
+              <div className="md:mt-32">
+                <div className="relative group">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#3dffff] to-[#191919] rounded-xl blur-md opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+                  <div className="relative bg-[#141414] backdrop-blur-md rounded-xl p-8 border border-[#3dffff]/20 hover:border-[#3dffff]/40 transition-all duration-300">
+                    <div className="absolute -left-4 top-8 w-8 h-8 rounded-full bg-[#3dffff] flex items-center justify-center md:-left-4">
+                      <Rocket className="w-4 h-4 text-[#141414]" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4 text-white">Entrega e Evolução</h3>
+                    <p className="text-white/80 mb-4">
+                      Deploy seguro e melhoria contínua com monitoramento e otimizações.
+                    </p>
+                    <ul className="space-y-2">
+                      <li className="flex items-start">
+                        <CheckCircle className="w-5 h-5 text-[#3dffff] mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-white/80">Deploy automatizado</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-5 h-5 text-[#3dffff] mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-white/80">Monitoramento 24/7</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-5 h-5 text-[#3dffff] mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-white/80">Otimizações contínuas</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
