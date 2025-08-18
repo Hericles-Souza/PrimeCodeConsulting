@@ -12,7 +12,7 @@ import LogoIconsvg from "@/assets/svg/logo-prime-code.svg";
 import { MatrixRainingLetters } from "react-mdr";
 import iconWhatsapp from "@/assets/svg/icon-whatsapp.svg";
 import hericles from "@/assets/img/hericles.png";
-import raphael from "@/assets/img/raphael.png"; 
+import raphael from "@/assets/img/raphael.png";
 
 const Index = () => {
   // Dados dos serviços
@@ -147,8 +147,10 @@ const Index = () => {
           <a href="#hero">
             <div className="flex items-center">
               <img src={LogoIconsvg} alt="" className="h-10 mr-3" />
-              <span className="text-xl font-bold bg-gradient-to-r from-[#FFFFFF] to-[#FFFFFF]/70 bg-clip-text text-transparent">PRIME</span>
-              <span className="text-xl font-normal bg-gradient-to-r from-[#FFFFFF] to-[#FFFFFF]/70 bg-clip-text text-transparent">CODE</span>
+              <div className="flex flex-col gap-0">
+                <span className="text-xl font-bold bg-gradient-to-r from-[#FFFFFF] to-[#FFFFFF]/70 bg-clip-text text-transparent">PRIMECODE</span>
+                <span className=" ml-[2px] text-[13px] font-normal bg-gradient-to-r from-[#FFFFFF] to-[#FFFFFF]/70 bg-clip-text text-transparent -mt-1 tracking-[0.3em]">CONSULTING</span>
+              </div>
             </div>
           </a>
           <nav className="hidden md:flex space-x-8">
@@ -491,85 +493,108 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-[#141414]">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-20 max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-white">Entre em</span> <span className="text-[#3dffff]">Contato</span>
+      <section id="contact" className="py-12 sm:py-20 bg-[#141414]">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12 sm:mb-20 max-w-3xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+              <span className="text-white">Entre em</span>{" "}
+              <span className="text-[#3dffff]">Contato</span>
             </h2>
-            <p className="text-xl text-white/80 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">
               Pronto para transformar seu negócio? Nossa equipe está aqui para ajudar.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="bg-[#191919] backdrop-blur-md rounded-xl p-6 border border-[#3dffff]/20">
-              <div className="flex items-center gap-2 mb-6">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-12">
+            {/* Form Section */}
+            <div className="bg-[#191919] backdrop-blur-md rounded-xl p-4 sm:p-6 border border-[#3dffff]/20">
+              <div className="flex items-center gap-2 mb-4 sm:mb-6">
                 <Mail className="w-5 h-5 text-[#3dffff]" />
-                <h3 className="text-xl font-bold text-white">Envie uma Mensagem</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-white">Envie uma Mensagem</h3>
               </div>
               <form className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm font-medium mb-2 block text-white/80">Nome</label>
-                    <Input placeholder="Seu nome" className="bg-[#191919] border-[#3dffff]/20 text-white" />
+                    <Input
+                      placeholder="Seu nome"
+                      className="bg-[#191919] border-[#3dffff]/20 text-white w-full text-sm sm:text-base"
+                    />
                   </div>
                   <div>
                     <label className="text-sm font-medium mb-2 block text-white/80">Email</label>
-                    <Input type="email" placeholder="seu@email.com" className="bg-[#191919] border-[#3dffff]/20 text-white" />
+                    <Input
+                      type="email"
+                      placeholder="seu@email.com"
+                      className="bg-[#191919] border-[#3dffff]/20 text-white w-full text-sm sm:text-base"
+                    />
                   </div>
                 </div>
                 <div>
                   <label className="text-sm font-medium mb-2 block text-white/80">Empresa</label>
-                  <Input placeholder="Nome da empresa" className="bg-[#191919] border-[#3dffff]/20 text-white" />
+                  <Input
+                    placeholder="Nome da empresa"
+                    className="bg-[#191919] border-[#3dffff]/20 text-white w-full text-sm sm:text-base"
+                  />
                 </div>
                 <div>
                   <label className="text-sm font-medium mb-2 block text-white/80">Mensagem</label>
-                  <Textarea placeholder="Conte-nos sobre seu projeto" rows={4} className="bg-[#191919] border-[#3dffff]/20 text-white" />
+                  <Textarea
+                    placeholder="Conte-nos sobre seu projeto"
+                    rows={4}
+                    className="bg-[#191919] border-[#3dffff]/20 text-white w-full text-sm sm:text-base"
+                  />
                 </div>
-                <Button type="submit" className="w-full bg-gradient-to-r from-[#3dffff] to-[#3dffff]/70 text-[#141414] hover:from-[#3dffff]/90 hover:to-[#3dffff]/50 shadow-lg shadow-[#3dffff]/30 hover:shadow-[#3dffff]/40">
+                <Button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-[#3dffff] to-[#3dffff]/70 text-[#141414] hover:from-[#3dffff]/90 hover:to-[#3dffff]/50 shadow-lg shadow-[#3dffff]/30 hover:shadow-[#3dffff]/40 text-sm sm:text-base py-3 sm:py-4"
+                >
                   Enviar Mensagem
                 </Button>
               </form>
             </div>
-            <div className="space-y-6">
+            {/* Contact Info Section */}
+            <div className="space-y-4 sm:space-y-6">
               <div>
-                <h3 className="text-xl font-semibold mb-4 text-white">Outras Formas de Contato</h3>
+                <h3 className="text-lg sm:text-xl font-semibold mb-4 text-white">Outras Formas de Contato</h3>
                 <div className="space-y-4">
-                  <div className="flex items-center gap-4 p-4 rounded-lg border border-[#3dffff]/20 hover:bg-[#3dffff]/10 transition-colors">
-                    <div className="w-12 h-12 bg-[#3dffff]/10 rounded-lg flex items-center justify-center">
-                      <Phone className="w-5 h-5 text-[#3dffff]" />
+                  <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg border border-[#3dffff]/20 hover:bg-[#3dffff]/10 transition-colors">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#3dffff]/10 rounded-lg flex items-center justify-center">
+                      <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-[#3dffff]" />
                     </div>
                     <div>
-                      <p className="font-medium text-white">Telefone</p>
-                      <p className="text-white/80">(11) 99999-9999</p>
+                      <p className="font-medium text-white text-sm sm:text-base">Telefone</p>
+                      <p className="text-white/80 text-sm sm:text-base">(11) 99999-9999</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4 p-4 rounded-lg border border-[#3dffff]/20 hover:bg-[#3dffff]/10 transition-colors">
-                    <div className="w-12 h-12 bg-[#3dffff]/10 rounded-lg flex items-center justify-center">
-                      <Mail className="w-5 h-5 text-[#3dffff]" />
+                  <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg border border-[#3dffff]/20 hover:bg-[#3dffff]/10 transition-colors">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#3dffff]/10 rounded-lg flex items-center justify-center">
+                      <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-[#3dffff]" />
                     </div>
                     <div>
-                      <p className="font-medium text-white">Email</p>
-                      <p className="text-white/80">contato@primecodeconsulting.com.br</p>
+                      <p className="font-medium text-white text-sm sm:text-base">Email</p>
+                      <p className="text-white/80 text-sm sm:text-base">contato@primecodeconsulting.com.br</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4 p-4 rounded-lg border border-[#3dffff]/20 hover:bg-[#3dffff]/10 transition-colors">
-                    <div className="w-12 h-12 bg-[#3dffff]/10 rounded-lg flex items-center justify-center">
-                      <MapPin className="w-5 h-5 text-[#3dffff]" />
+                  <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg border border-[#3dffff]/20 hover:bg-[#3dffff]/10 transition-colors">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#3dffff]/10 rounded-lg flex items-center justify-center">
+                      <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-[#3dffff]" />
                     </div>
                     <div>
-                      <p className="font-medium text-white">Localização</p>
-                      <p className="text-white/80">Passo Fundo-RS, Brasil</p>
+                      <p className="font-medium text-white text-sm sm:text-base">Localização</p>
+                      <p className="text-white/80 text-sm sm:text-base">Passo Fundo-RS, Brasil</p>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="bg-[#3dffff]/10 backdrop-blur-md rounded-xl p-6 border border-[#3dffff]/20">
-                <h4 className="font-semibold mb-2 text-white">Consultoria Gratuita</h4>
-                <p className="text-sm text-white/80 mb-4">
+              <div className="bg-[#3dffff]/10 backdrop-blur-md rounded-xl p-4 sm:p-6 border border-[#3dffff]/20">
+                <h4 className="font-semibold mb-2 text-white text-base sm:text-lg">Consultoria Gratuita</h4>
+                <p className="text-sm sm:text-base text-white/80 mb-4">
                   Oferecemos 30 minutos de consultoria gratuita para discutir seu projeto.
                 </p>
-                <Button variant="outline" className="w-full border-[#3dffff] text-[#3dffff] hover:bg-[#3dffff]/10">
+                <Button
+                  variant="outline"
+                  className="w-full border-[#3dffff] text-[#3dffff] hover:bg-[#3dffff]/10 text-sm sm:text-base py-3 sm:py-4"
+                >
                   Agendar Consultoria
                 </Button>
               </div>
