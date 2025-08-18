@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+@layer base {
+  :root {
+    /* Dark mode (tech-inspired, no blue tones) */
+    --background: 0 0% 0%; /* #000000 black */
+    --foreground: 180 100% 62%; /* #00E5FF neon cyan */
+    --card: 0 0% 12%; /* #1F1F1F near-black */
+    --card-foreground: 0 0% 100%; /* #FFFFFF white */
+    --popover: 0 0% 12%; /* #1F1F1F near-black */
+    --popover-foreground: 0 0% 100%; /* #FFFFFF white */
+    --primary: 0 0% 100%; /* #4A4A4A gray */
+    --primary-foreground: 180 100% 62%; /* #00E5FF neon cyan */
+    --secondary: 0 0% 18%; /* #2D2D2D dark gray */
+    --secondary-foreground: 0 0% 100%; /* #FFFFFF white */
+    --muted: 0 0% 12%; /* #1F1F1F near-black */
+    --muted-foreground: 0 0% 50%; /* #808080 medium gray */
+    --accent: 0 0% 29%; /* #4A4A4A gray */
+    --accent-foreground: 180 100% 62%; /* #00E5FF neon cyan */
+    --destructive: 0 84.2% 60.2%; /* Retain red */
+    --destructive-foreground: 0 0% 100%; /* #FFFFFF white */
+    --border: 0 0% 29%; /* #4A4A4A gray */
+    --input: 0 0% 29%; /* #4A4A4A gray */
+    --ring: 0 0% 29%; /* #4A4A4A gray */
+    --radius: 0.75rem;
+    --neon-gradient: linear-gradient(135deg, #3dffff 0%, hsl(0, 0%, 100%) 100%); /* Neon cyan to gray */
+    --tech-gradient: linear-gradient(45deg, hsl(0 0% 12%) 0%, hsl(180 100% 62%) 100%); /* Dark to neon */
+    --shadow-primary: 0 10px 30px -10px rgba(74, 74, 74, 0.5); /* Gray shadow */
+    --shadow-neon: 0 0 15px rgba(0, 229, 255, 0.7); /* Neon glow */
+    --shadow-card: 0 8px 32px rgba(31, 31, 31, 0.8); /* Near-black shadow */
+  }
+
+  .light {
+    /* Tech-inspired light mode */
+    --background: 0 0% 100%; /* #FFFFFF white */
+    --foreground: 195 100% 85%; /* #CCF5FF cyan */
+    --card: 0 0% 100%; /* #FFFFFF white */
+    --card-foreground: 210 84% 27%; /* #0E3A76 dark blue */
+    --popover: 0 0% 100%; /* #FFFFFF white */
+    --popover-foreground: 210 84% 27%; /* #0E3A76 dark blue */
+    --primary: 210 84% 27%; /* #0E3A76 dark blue */
+    --primary-foreground: 195 100% 85%; /* #CCF5FF cyan */
+    --secondary: 210 40% 96.1%; /* Light gray-blue */
+    --secondary-foreground: 210 84% 27%; /* #0E3A76 dark blue */
+    --muted: 210 40% 96.1%; /* Light gray-blue */
+    --muted-foreground: 215.4 16.3% 46.9%; /* Dark gray */
+    --accent: 210 84% 27%; /* #0E3A76 dark blue */
+    --accent-foreground: 195 100% 85%; /* #CCF5FF cyan */
+    --destructive: 0 84.2% 60.2%; /* Retain red */
+    --destructive-foreground: 210 40% 98%; /* Light blue */
+    --border: 214.3 31.8% 91.4%; /* Light gray */
+    --input: 214.3 31.8% 91.4%; /* Light gray */
+    --ring: 210 84% 27%; /* #0E3A76 dark blue */
+    --neon-gradient: linear-gradient(135deg, hsl(195 100% 85%) 0%, hsl(210 84% 27%) 100%); /* Cyan to dark blue */
+    --tech-gradient: linear-gradient(45deg, hsl(210 40% 96.1%) 0%, hsl(195 100% 85%) 100%); /* Light to cyan */
+    --shadow-primary: 0 10px 30px -10px hsl(210 84% 27% / 0.3); /* Dark blue shadow */
+    --shadow-neon: 0 0 15px hsl(195 100% 85% / 0.7); /* Cyan glow */
+    --shadow-card: 0 8px 32px hsl(210 84% 15% / 0.8); /* Dark blue shadow */
+  }
+
+  /* Technological animations */
+  @keyframes orbit {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  @keyframes pulse-neon {
+    0% { box-shadow: 0 0 5px var(--foreground), 0 0 10px var(--foreground); }
+    50% { box-shadow: 0 0 10px var(--foreground), 0 0 20px var(--foreground); }
+    100% { box-shadow: 0 0 5px var(--foreground), 0 0 10px var(--foreground); }
+  }
+  @keyframes glitch {
+    2%, 64% { transform: translate(2px, 0) skew(0deg); }
+    4%, 60% { transform: translate(-2px, 0) skew(0deg); }
+    62% { transform: translate(0, 0) skew(5deg); }
+  }
+
+  .neon-glow {
+    text-shadow: 0 0 10px var(--foreground), 0 0 20px var(--foreground), 0 0 30px var(--foreground);
+    animation: pulse-neon 2s infinite;
+  }
+  .orbit {
+    animation: orbit 10s linear infinite;
+  }
+  .glitch {
+    animation: glitch 1s linear infinite;
+  }
+  .tech-card {
+    background: linear-gradient(135deg, var(--card) 0%, rgba(255, 255, 255, 0.1) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-card), var(--shadow-neon);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  .tech-card:hover {
+    transform: scale(1.05) translateZ(10px);
+    box-shadow: var(--shadow-card), 0 0 25px var(--foreground);
+  }
+  .tech-button {
+    background: var(--neon-gradient);
+    color: var(--primary-foreground);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-neon);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  .tech-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 20px var(--foreground), 0 0 30px var(--foreground);
+  }
+}
