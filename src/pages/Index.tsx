@@ -13,6 +13,9 @@ import { MatrixRainingLetters } from "react-mdr";
 import iconWhatsapp from "@/assets/svg/icon-whatsapp.svg";
 import hericles from "@/assets/img/hericles.png";
 import raphael from "@/assets/img/raphael.png";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import LogoCodeCast from "../assets/codecast/img/banner-code-cast.png";
 
 const Index = () => {
   // Dados dos serviços
@@ -105,15 +108,57 @@ const Index = () => {
       name: "Raphael Chagas",
       role: "Fundador & CEO",
       bio: "Líder visionário com paixão por tecnologia e inovação, guiando a Prime Code na entrega de soluções digitais de impacto.",
-      image: raphael // Corrected to use imported image
+      image: raphael
     },
     {
       name: "Hericles de Souza",
       role: "Fundador & CEO",
       bio: "Estrategista técnico focado em transformar ideias em realidade com soluções escaláveis e robustas.",
-      image: hericles // Corrected to use imported image directly
+      image: hericles
     }
   ];
+
+  // Form state
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    message: "",
+  });
+  const [status, setStatus] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Handle form input changes
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      setStatus(result.message);
+      if (response.ok) {
+        setFormData({ name: "", email: "", company: "", message: "" });
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setStatus('Erro ao enviar a mensagem. Tente novamente.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#141414] text-white">
@@ -250,6 +295,78 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Podcast Section */}
+      <div className="py-20 bg-[#141414]">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="text-white">Nosso</span> <span className="text-[#3DFF77]">Podcast</span>
+            </h2>
+            <p className="text-xl text-white/80 leading-relaxed">
+              Explore o mundo da tecnologia com o "CodeCast", disponível exclusivamente no YouTube, onde discutimos tendências, dicas e histórias da engenharia de software.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-[#3DFF77] to-[#191919] rounded-[15px] blur-md opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+              <div className="relative bg-[#141414] backdrop-blur-md rounded-xl p-6 border border-[#3DFF77]/20 hover:border-[#3DFF77]/40 transition-all duration-300 overflow-hidden">
+                <img src={LogoCodeCast} alt="Podcast Cover" className=" h-[165px] w-full object-cover rounded-lg mb-4" />
+                {/* <h3 className="text-2xl font-bold mb-2 text-white">CodeCast</h3> */}
+                <p className="text-white/80 mb-4">Episódios semanais com insights de especialistas e convidados especiais, direto do YouTube.</p>
+                <a href="https://www.youtube.com/@CodeCast-v6s" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-[#3DFF77] hover:text-[#3DFF77]/80 transition-colors">
+                  <span>Assista agora</span>
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div className="relative bg-[#141414] backdrop-blur-md rounded-xl p-6 border border-[#3DFF77]/20 hover:border-[#3DFF77]/40 transition-all duration-300 overflow-hidden">
+                <p className="font-medium text-white text-[16px] mb-[15px]">Últimos Videos</p>
+                <div className="space-y-4">
+                  <a
+                    href="https://youtube.com/watch?v=video1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block bg-[#0F0F0F] p-3 rounded-lg border border-[#3DFF77]/20 hover:bg-[#3DFF77]/10 transition-colors"
+                  >
+                    <div className="flex items-center gap-3">
+                      <img src="https://via.placeholder.com/120x90" alt="Thumbnail 1" className="w-30 h-20 object-cover rounded-md" />
+                      <div>
+                        <p className="font-medium text-white text-sm">DevOps na Prática</p>
+                        <p className="text-white/80 text-xs">10:25 AM -03, 19/08/2025</p>
+                        <p className="text-white/80 text-xs">2.5K visualizações • 150 likes</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="https://youtube.com/watch?v=video2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block bg-[#0F0F0F] p-3 rounded-lg border border-[#3DFF77]/20 hover:bg-[#3DFF77]/10 transition-colors"
+                  >
+                    <div className="flex items-center gap-3">
+                      <img src="https://via.placeholder.com/120x90" alt="Thumbnail 2" className="w-30 h-20 object-cover rounded-md" />
+                      <div>
+                        <p className="font-medium text-white text-sm">Tendências em UX/UI</p>
+                        <p className="text-white/80 text-xs">09:30 AM -03, 18/08/2025</p>
+                        <p className="text-white/80 text-xs">1.8K visualizações • 90 likes</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              {/* <div className="flex items-center gap-4 p-4 rounded-lg border border-[#3DFF77]/20 hover:bg-[#3DFF77]/10 transition-colors">
+                <MessageCircle className="w-6 h-6 text-[#3DFF77]" />
+                <div>
+                  <p className="font-medium text-white">Inscreva-se</p>
+                  <p className="text-white/80">YouTube - Prime Code Consulting</p>
+                </div>
+              </div> */}
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Services Section */}
       <section id="services" className="py-20 bg-[#141414]">
         <div className="container mx-auto px-6">
@@ -272,10 +389,15 @@ const Index = () => {
                   </div>
                   <h3 className="text-xl font-bold mb-2 text-white">{service.title}</h3>
                   <p className="text-white/80 mb-4">{service.description}</p>
-                  <button className="inline-flex items-center text-[#3dffff] hover:text-[#3dffff]/80 transition-colors group">
-                    <span>Saiba mais</span>
+                  <Link
+                    to={`/services/${encodeURIComponent(service.title)}`}
+                    className="inline-flex items-center text-[#3dffff] hover:text-[#3dffff]/80 transition-colors group"
+                  >
+                    <Link to={`/services/${encodeURIComponent(service.title)}`}>
+                      <p >Saiba mais</p>
+                    </Link>
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -511,27 +633,38 @@ const Index = () => {
                 <Mail className="w-5 h-5 text-[#3dffff]" />
                 <h3 className="text-lg sm:text-xl font-bold text-white">Envie uma Mensagem</h3>
               </div>
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm font-medium mb-2 block text-white/80">Nome</label>
                     <Input
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
                       placeholder="Seu nome"
                       className="bg-[#191919] border-[#3dffff]/20 text-white w-full text-sm sm:text-base"
+                      required
                     />
                   </div>
                   <div>
                     <label className="text-sm font-medium mb-2 block text-white/80">Email</label>
                     <Input
+                      name="email"
                       type="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       placeholder="seu@email.com"
                       className="bg-[#191919] border-[#3dffff]/20 text-white w-full text-sm sm:text-base"
+                      required
                     />
                   </div>
                 </div>
                 <div>
                   <label className="text-sm font-medium mb-2 block text-white/80">Empresa</label>
                   <Input
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
                     placeholder="Nome da empresa"
                     className="bg-[#191919] border-[#3dffff]/20 text-white w-full text-sm sm:text-base"
                   />
@@ -539,17 +672,30 @@ const Index = () => {
                 <div>
                   <label className="text-sm font-medium mb-2 block text-white/80">Mensagem</label>
                   <Textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     placeholder="Conte-nos sobre seu projeto"
                     rows={4}
                     className="bg-[#191919] border-[#3dffff]/20 text-white w-full text-sm sm:text-base"
+                    required
                   />
                 </div>
                 <Button
                   type="submit"
+                  disabled={isSubmitting}
                   className="w-full bg-gradient-to-r from-[#3dffff] to-[#3dffff]/70 text-[#141414] hover:from-[#3dffff]/90 hover:to-[#3dffff]/50 shadow-lg shadow-[#3dffff]/30 hover:shadow-[#3dffff]/40 text-sm sm:text-base py-3 sm:py-4"
                 >
-                  Enviar Mensagem
+                  {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
                 </Button>
+                {status && (
+                  <p
+                    className={`mt-4 text-center text-sm sm:text-base ${status.includes("Erro") ? "text-red-500" : "text-[#3dffff]"
+                      }`}
+                  >
+                    {status}
+                  </p>
+                )}
               </form>
             </div>
             {/* Contact Info Section */}
@@ -609,8 +755,11 @@ const Index = () => {
           <div className="grid md:grid-cols-4 gap-12">
             <div>
               <div className="flex items-center space-x-3 mb-6">
-                <img src={LogoIconsvg} alt="" className="h-12 mr-3" />
-                <span className="text-xl font-bold text-white">PRIME CODE</span>
+                <img src={LogoIconsvg} alt="" className="h-12 mr-1" />
+                <div className="flex flex-col gap-0">
+                  <span className="text-xl font-bold bg-gradient-to-r from-[#FFFFFF] to-[#FFFFFF]/70 bg-clip-text text-transparent">PRIMECODE</span>
+                  <span className=" ml-[2px] text-[13px] font-normal bg-gradient-to-r from-[#FFFFFF] to-[#FFFFFF]/70 bg-clip-text text-transparent -mt-1 tracking-[0.3em]">CONSULTING</span>
+                </div>
               </div>
               <p className="text-white/80 mb-6">
                 Consultoria especializada em engenharia de software para empresas que buscam excelência tecnológica.
@@ -622,11 +771,11 @@ const Index = () => {
             <div>
               <h3 className="text-lg font-semibold mb-6 text-white">Serviços</h3>
               <ul className="space-y-3">
-                <li><a href="#" className="text-white/80 hover:text-[#3dffff] transition-colors">Engenharia de Software</a></li>
-                <li><a href="#" className="text-white/80 hover:text-[#3dffff] transition-colors">Arquitetura de Sistemas</a></li>
-                <li><a href="#" className="text-white/80 hover:text-[#3dffff] transition-colors">UX/UI Design</a></li>
-                <li><a href="#" className="text-white/80 hover:text-[#3dffff] transition-colors">Testes Automatizados</a></li>
-                <li><a href="#" className="text-white/80 hover:text-[#3dffff] transition-colors">DevOps & CI/CD</a></li>
+                <li><Link to="/services/Engenharia%20de%20Software" className="text-white/80 hover:text-[#3dffff] transition-colors">Engenharia de Software</Link></li>
+                <li><Link to="/services/Arquitetura%20de%20Sistemas" className="text-white/80 hover:text-[#3dffff] transition-colors">Arquitetura de Sistemas</Link></li>
+                <li><Link to="/services/Desenvolvimento%20Avançado" className="text-white/80 hover:text-[#3dffff] transition-colors">UX/UI Design</Link></li>
+                <li><Link to="/services/Testes%20Automatizados" className="text-white/80 hover:text-[#3dffff] transition-colors">Testes Automatizados</Link></li>
+                <li><Link to="/services/DevOps%20&%20CI/CD" className="text-white/80 hover:text-[#3dffff] transition-colors">DevOps & CI/CD</Link></li>
               </ul>
             </div>
             <div>

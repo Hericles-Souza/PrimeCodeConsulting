@@ -1,19 +1,25 @@
 {
   "files": [],
   "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+    { "path": "./tsconfig.app.json" },    // Frontend
+    { "path": "./tsconfig.node.json" },  // Configuração Node.js/Vite
+    { "path": "./tsconfig.backend.json" } // Backend
   ],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
-    "noImplicitAny": false,
-    "noUnusedParameters": false,
+    "target": "ES2022",                  // Alinha com tsconfig.node.json
+    "module": "ESNext",
+    "moduleResolution": "node",          // Suporte a Node.js para backend
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
     "allowJs": true,
-    "noUnusedLocals": false,
-    "strictNullChecks": false
+    "strict": false,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "forceConsistentCasingInFileNames": true
   }
 }
